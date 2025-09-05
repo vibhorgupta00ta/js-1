@@ -17,7 +17,18 @@ let state;
 //symbol=>unique
 
 //object
-
+let anotherId=Symbol('123')
 console.log(typeof undefined);
 console.log(typeof null)
+
+const heros =["Shaktiman","naagraj","doga"];
+let myObj={
+    name: "vibhor",
+    age: 22,
+}
+const myfunction=function(){
+    console.log("Hello World");
+}
+console.log(typeof myfunction);
+console.log(typeof anotherId);
 
