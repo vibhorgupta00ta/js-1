@@ -1,0 +1,132 @@
+<!-- In JavaScript, events are actions or occurrences that happen in the browser, which JS can detect and respond to.
+
+🔹 What is an Event?
+
+An event occurs when:
+
+a user clicks a button
+
+presses a key
+
+moves the mouse
+
+submits a form
+
+a page loads
+
+input value changes
+
+JS listens to these events and runs code when they happen.
+
+🔹 Common JavaScript Events
+🖱️ Mouse Events
+Event	Description
+click	Mouse click
+dblclick	Double click
+mouseover	Mouse enters element
+mouseout	Mouse leaves element
+mousedown	Mouse button pressed
+mouseup	Mouse button released
+⌨️ Keyboard Events
+Event	Description
+keydown	Key pressed
+keyup	Key released
+keypress	Key pressed (old, less used)
+📝 Form Events
+Event	Description
+submit	Form submitted
+change	Input value changed
+focus	Input focused
+blur	Input loses focus
+input	Value changes instantly
+🌐 Window / Document Events
+Event	Description
+load	Page fully loaded
+DOMContentLoaded	HTML loaded
+resize	Window resized
+scroll	Page scrolled
+🔹 How to Handle Events
+✅ 1. Using HTML attribute (Not Recommended)
+<button onclick="alert('Clicked')">Click</button>
+
+✅ 2. Using addEventListener() (BEST WAY)
+const btn = document.querySelector("button");
+
+btn.addEventListener("click", () => {
+    console.log("Button clicked");
+});
+
+🔹 Event Object
+
+JS automatically provides an event object with details.
+
+btn.addEventListener("click", (event) => {
+    console.log(event.target); // clicked element
+});
+
+🔹 Event Bubbling & Capturing
+🔼 Bubbling (default)
+
+Event goes child → parent
+
+div.addEventListener("click", () => console.log("Div clicked"));
+button.addEventListener("click", () => console.log("Button clicked"));
+
+🔽 Capturing
+
+Event goes parent → child
+
+div.addEventListener("click", handler, true);
+
+🔹 Prevent Default Behavior
+form.addEventListener("submit", (e) => {
+    e.preventDefault();
+});
+
+🔹 Event Delegation (Important for interviews 🔥)
+document.querySelector("ul").addEventListener("click", (e) => {
+    if (e.target.tagName === "LI") {
+        console.log(e.target.innerText);
+    }
+}); -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Htmlm Events</title>
+</head>
+<body style="background-color: #414141;">
+    <h2 style="color: white;">Amazing cars</h2>
+<div>
+    <ul id="images">
+        <li style="color:white"><img width="200px" id="redCar"src="https://images.unsplash.com/photo-1614200179396-2bdb77ebf81b?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bHV4dXJ5JTIwY2FyfGVufDB8fDB8fHww" alt=""></li>
+        <li style="color:white"><img width="200px" id="blackCar" src="https://static.toiimg.com/photo/80387978.cms?imgsize=174948" alt=""></li>
+        <!-- <li style="color:white"><img width="200px" id="whiteCar" src="https://media.istockphoto.com/id/1400875527/photo/lamborghini-aventador.jpg?s=612x612&w=0&k=20&c=cE6nwR9dUzSmvXX6kM7bSfHFMunFlTeQ098SptaTOW8=" alt="" onclick="alert('White Car hae yeh')"></li> -->
+        <li style="color:white"><img width="200px" id="whiteCar" src="https://media.istockphoto.com/id/1400875527/photo/lamborghini-aventador.jpg?s=612x612&w=0&k=20&c=cE6nwR9dUzSmvXX6kM7bSfHFMunFlTeQ098SptaTOW8=" alt=""></li>
+        <li style="color:white"><img width="200px" id="yellowCar" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4jF1h3eeSyoJx6Gsd_6t1u4iRKAb1AqbCQA&s" alt=""></li>
+        <li style="color:white"><a href="https://google.com" id="google" style="color:aliceblue">Google</a></li>
+    </ul>
+</div>
+</body>
+<script>
+    //  document.getElementById('yellowCar').onclick=function(){
+    //    alert('Yellow car hae yeh')
+    //}
+
+    //best approach
+    //attachEvent()
+    //jQuery - on
+    document.getElementById('yellowCar').addEventListener('click',function(e){
+        console.log(e)
+    },false)
+    //type,timestamp,defaultPrevented
+</script>
+</html>
+
+
+
+
