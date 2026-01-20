@@ -1,0 +1,30 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+ </head>
+ <body style="background-color: #000000;">
+   <img id="photo" alt="hi">
+   <br>
+   <p id="followers" style="color: white"></p>
+ </body>
+ <script>
+    const requestUrl='https://api.github.com/users/hiteshchoudhary'
+    const xhr=new XMLHttpRequest();
+    xhr.open('GET',requestUrl)
+    xhr.onreadystatechange = function(){
+        console.log(xhr.readyState);
+        if(xhr.readyState===4){
+         const data=JSON.parse(this.responseText);   //important linee
+         console.log(data);
+         const pic=data.avatar_url;
+         const flw=data.followers;
+         document.querySelector("#photo").src=pic;
+         document.getElementById('followers').innerHTML=`My followers count is ${flw} and i am very much happy`
+        }
+    }
+    xhr.send()
+ </script>
+ </html>
